@@ -39,6 +39,13 @@ body {
   margin: 10px 0;
 }
 
+.food-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
 .food-card button {
   background: #ff4d4d;
   color: white;
@@ -50,6 +57,27 @@ body {
 
 .food-card button:hover {
   background: #e60000;
+}
+
+.food-card {
+  transition: transform 0.2s ease;
+}
+
+.food-card:hover {
+  transform: scale(1.05);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+}
+
+button {
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
 }
 
 /* Cart */

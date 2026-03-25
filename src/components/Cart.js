@@ -1,4 +1,10 @@
-function Cart({ cartItems, removeFromCart }) {
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCart } from "../redux/cartSlice";
+
+function Cart() {
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+
   const total = cartItems.reduce((sum, item) => sum + item.price, 0);
 
   return (
@@ -9,12 +15,11 @@ function Cart({ cartItems, removeFromCart }) {
 
       {cartItems.map((item, index) => (
         <div key={index} className="cart-item">
-          <p>{item.name} - ₹{item.price}</p>
+          <p>
+            {item.name} - ₹{item.price}
+          </p>
 
-          <button
-            className="remove-btn"
-            onClick={() => removeFromCart(index)}
-          >
+          <button onClick={() => dispatch(removeFromCart(index))}>
             Remove
           </button>
         </div>
